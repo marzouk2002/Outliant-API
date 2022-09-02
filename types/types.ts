@@ -1,14 +1,10 @@
-export interface RawBook {
+export interface Book {
     title: string;
     author_name: string;
     publication_year: number;
     isbn: string;
     num_pages: number;
 }
-
-export type Book = {
-    isbn: string;
-} & RawBook;
 
 export enum ERROR {
     INVALID_BOOK= 'Please provide a valid Book',

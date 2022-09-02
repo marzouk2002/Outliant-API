@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { ERROR } from '../types/types'
 import BooksModel  from '../models/books'
-import { isAvalideBook, generateIsbn } from '../utils/utils';
+import { isAvalideBook } from '../utils/utils';
 
 const router: Router = Router()
 
@@ -15,10 +15,7 @@ router.post('/', async (req: Request, res: Response) => {
         const { book } = req.body
         if(!isAvalideBook(book)) throw new Error(ERROR.INVALID_BOOK)
 
-        await BooksModel.create({
-            ...book,
-            isbn: generateIsbn()
-        })
+        await BooksModel.create({...book})
         res.status(201).json({
             message: 'Book Added successfully',
             book
