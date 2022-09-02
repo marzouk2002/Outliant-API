@@ -12,7 +12,9 @@ mongoose.connect(DB_URL as string, () => {
     console.log('DB connected...')
 })
 
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}))
 
 app.use(express.json())
 
