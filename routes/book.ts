@@ -13,7 +13,7 @@ router.get('/', async (req: Request, res: Response) => {
 router.post('/', async (req: Request, res: Response) => {
     try {
         const { book } = req.body
-        if(book || !isAvalideBook(book)) throw new Error(ERROR.INVALID_BOOK)
+        if(!book || !isAvalideBook(book)) throw new Error(ERROR.INVALID_BOOK)
 
         await BooksModel.create({...book})
         res.status(201).json({
