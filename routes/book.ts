@@ -20,7 +20,6 @@ router.post('/', async (req: Request, res: Response) => {
             message: 'Book Added successfully',
             book
         })
-
     } catch(err: any) {
         switch(err.message) {
             case ERROR.INVALID_BOOK: 
